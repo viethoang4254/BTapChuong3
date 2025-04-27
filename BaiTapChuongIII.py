@@ -107,7 +107,7 @@ def main():
 
 def backup_hang_ngay():
     """Lên lịch chạy backup hàng ngày vào lúc 00:00."""
-    schedule.every().day.at("00:05").do(main)  # Đổi về 00:00 theo yêu cầu
+    schedule.every().day.at("00:05").do(main)  
     try:
         while True:
             schedule.run_pending()
