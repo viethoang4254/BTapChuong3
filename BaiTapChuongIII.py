@@ -20,8 +20,8 @@ load_dotenv()
 SENDER_EMAIL = os.getenv("SENDER_EMAIL")
 APP_PASSWORD = os.getenv("APP_PASSWORD")
 RECEIVER_EMAIL = os.getenv("RECEIVER_EMAIL")
-BACKUP_DIR = 'BaiTapVeNha/backups'  # Gán trực tiếp vì không có trong .env
-DB_DIR = './BaiTapVeNha'    # Thêm thư mục để tìm file .sql và .sqlite3
+BACKUP_DIR = 'BaiTapVeNha/backups'  
+DB_DIR = './BaiTapVeNha'    
 
 # Kiểm tra xem các biến có được load đúng không
 if not all([SENDER_EMAIL, APP_PASSWORD, RECEIVER_EMAIL]):
@@ -40,7 +40,7 @@ def backup_database():
     failed_files = []
 
     try:
-        for filename in os.listdir(DB_DIR):  # Tìm trong thư mục databases/
+        for filename in os.listdir(DB_DIR):  
             if filename.endswith(".sql") or filename.endswith(".sqlite3"):
                 source_path = os.path.join(DB_DIR, filename)
                 destination_path = os.path.join(BACKUP_DIR, f"{filename}_{timestamp}")
